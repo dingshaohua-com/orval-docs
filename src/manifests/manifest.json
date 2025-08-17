@@ -1,0 +1,185 @@
+{
+  "routes": [
+    {
+      "title": "开始使用",
+      "heading": true,
+      "routes": [
+        {
+          "title": "概述",
+          "path": "/overview",
+          "editUrl": "/overview.md"
+        },
+        {
+          "title": "安装",
+          "path": "/installation",
+          "editUrl": "/installation.md"
+        },
+        {
+          "title": "快速开始",
+          "path": "/quick-start",
+          "editUrl": "/quick-start.md"
+        }
+      ]
+    },
+    {
+      "title": "指南",
+      "heading": true,
+      "routes": [
+        {
+          "title": "使用您自己的基础 URL",
+          "path": "/guides/set-base-url",
+          "editUrl": "/guides/set-base-url.md"
+        },
+        {
+          "title": "自定义 HTTP 客户端",
+          "path": "/guides/custom-client",
+          "editUrl": "/guides/custom-client.md"
+        },
+        {
+          "title": "自定义 Axios 实例",
+          "path": "/guides/custom-axios",
+          "editUrl": "/guides/custom-axios.md"
+        },
+        {
+          "title": "基础",
+          "path": "/guides/basics",
+          "editUrl": "/guides/basics.md"
+        },
+        {
+          "title": "Fetch 客户端",
+          "path": "/guides/fetch-client",
+          "editUrl": "/guides/fetch-client.md"
+        },
+        {
+          "title": "Fetch API",
+          "path": "/guides/fetch",
+          "editUrl": "/guides/fetch.md"
+        },
+        {
+          "title": "React Query",
+          "path": "/guides/react-query",
+          "editUrl": "/guides/react-query.md"
+        },
+        {
+          "title": "Svelte Query",
+          "path": "/guides/svelte-query",
+          "editUrl": "/guides/svelte-query.md"
+        },
+        {
+          "title": "Vue Query",
+          "path": "/guides/vue-query",
+          "editUrl": "/guides/vue-query.md"
+        },
+        {
+          "title": "Angular",
+          "path": "/guides/angular",
+          "editUrl": "/guides/angular.md"
+        },
+        {
+          "title": "SWR",
+          "path": "/guides/swr",
+          "editUrl": "/guides/swr.md"
+        },
+        {
+          "title": "MSW",
+          "path": "/guides/msw",
+          "editUrl": "/guides/msw.md"
+        },
+        {
+          "title": "Zod",
+          "path": "/guides/zod",
+          "editUrl": "/guides/zod.md"
+        },
+        {
+          "title": "使用 Zod 的客户端",
+          "path": "/guides/client-with-zod",
+          "editUrl": "/guides/client-with-zod.md"
+        },
+        {
+          "title": "Hono",
+          "path": "/guides/hono",
+          "editUrl": "/guides/hono.md"
+        },
+        {
+          "title": "枚举名称",
+          "path": "/guides/enums",
+          "editUrl": "/guides/enums.md"
+        },
+        {
+          "title": "MCP 服务器",
+          "path": "/guides/mcp",
+          "editUrl": "/guides/mcp.md"
+        },
+        {
+          "title": "流式 NDJSON",
+          "path": "/guides/stream-ndjson",
+          "editUrl": "/guides/stream-ndjson.md"
+        }
+      ]
+    },
+    {
+      "title": "API 参考",
+      "heading": true,
+      "routes": [
+        {
+          "title": "配置",
+          "routes": [
+            {
+              "title": "概述",
+              "path": "/reference/configuration/overview",
+              "editUrl": "/reference/configuration/overview.md"
+            },
+            {
+              "title": "输入",
+              "path": "/reference/configuration/input",
+              "editUrl": "/reference/configuration/input.md"
+            },
+            {
+              "title": "输出",
+              "path": "/reference/configuration/output",
+              "editUrl": "/reference/configuration/output.md"
+            },
+            {
+              "title": "钩子",
+              "path": "/reference/configuration/hooks",
+              "editUrl": "/reference/configuration/hooks.md"
+            },
+            {
+              "title": "完整示例",
+              "path": "/reference/configuration/full-example",
+              "editUrl": "/reference/configuration/full-example.md"
+            }
+          ]
+        },
+        {
+          "title": "CLI",
+          "path": "/reference/cli",
+          "editUrl": "/reference/cli.md"
+        },
+        {
+          "title": "集成",
+          "path": "/reference/integration",
+          "editUrl": "/reference/integration.md"
+        }
+      ]
+    },
+    {
+      "title": "版本",
+      "heading": true,
+      "routes": [
+        {
+          "title": "next",
+          "href": "https://next.orval.dev/"
+        },
+        {
+          "title": "v5",
+          "href": "https://v5.orval.dev/"
+        },
+        {
+          "title": "v4",
+          "href": "https://v4.orval.dev/"
+        }
+      ]
+    }
+  ]
+}
