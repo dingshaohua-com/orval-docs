@@ -36,4 +36,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: root
-          TARGET: /home/orval-docs
+          TARGET: /home/apps-root/orval-docs
