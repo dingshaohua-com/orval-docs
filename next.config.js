@@ -5,15 +5,21 @@ const visit = require('unist-util-visit');
 const remarkPlugins = require('./src/lib/docs/remark-plugins.js');
 
 module.exports = {
-  pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx', 'md'],
-  rewrites() {
-    return [
-      {
-        source: '/docs{/}?',
-        destination: '/docs/overview',
-      },
-    ];
+  output: 'export',
+  trailingSlash: true,
+  assetPrefix: './',
+  images: {
+    unoptimized: true
   },
+  pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx', 'md'],
+  // rewrites() {
+  //   return [
+  //     {
+  //       source: '/docs{/}?',
+  //       destination: '/docs/overview',
+  //     },
+  //   ];
+  // },
   webpack: (config, { dev, isServer, ...options }) => {
     config.module.rules.push({
       test: /.mdx?$/, // load both .md and .mdx files
