@@ -1,13 +1,13 @@
 ---
 id: configuration-output
-title: Output
+title: 输出配置
 ---
 
 ## target
 
-Type: `String`.
+类型：`String`。
 
-Valid values: path to the file which will contains the implementation.
+有效值：包含实现的文件路径。
 
 ```js
 module.exports = {
@@ -21,11 +21,11 @@ module.exports = {
 
 ## client
 
-Type: `String | Function`.
+类型：`String | Function`。
 
-Valid values: `angular`, `axios`, `axios-functions`, `react-query`, `svelte-query`, `vue-query`, `swr`, `zod`, `fetch`.
+有效值：`angular`、`axios`、`axios-functions`、`react-query`、`svelte-query`、`vue-query`、`swr`、`zod`、`fetch`。
 
-Default Value: `axios-functions`.
+默认值：`axios-functions`。
 
 ```js
 module.exports = {
@@ -37,15 +37,15 @@ module.exports = {
 };
 ```
 
-If you want you can provide a function to extend or create you custom client generator and this function receive a [GeneratorClients](https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L156) in argument and should return a [ClientGeneratorsBuilder](https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L652).
+如果您想要扩展或创建自定义客户端生成器，可以提供一个函数，该函数接收 [GeneratorClients](https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L156) 作为参数，并应返回 [ClientGeneratorsBuilder](https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L652)。
 
 ## httpClient
 
-Type: `String`.
+类型：`String`。
 
-Valid values: `fetch`, `axios`.
+有效值：`fetch`、`axios`。
 
-Default Value: `axios`.
+默认值：`axios`。
 
 ```js
 module.exports = {
@@ -58,16 +58,16 @@ module.exports = {
 };
 ```
 
-If you want you can use the `fetch` API as an http client by specifying `fetch` in the `httpClient` option.
-`httpClient` only available when `swr`, `react-query`, `vue-query`, and `svelte-query` are specified as the `client` option.
+如果您想使用 `fetch` API 作为 http 客户端，可以在 `httpClient` 选项中指定 `fetch`。
+`httpClient` 仅在 `client` 选项指定为 `swr`、`react-query`、`vue-query` 和 `svelte-query` 时可用。
 
 ## schemas
 
-Type: `String`.
+类型：`String`。
 
-Valid values: path to the folder where you want to generate all your models.
+有效值：要生成所有模型的文件夹路径。
 
-Default Value: same as the target.
+默认值：与 target 相同。
 
 ```js
 module.exports = {
@@ -81,11 +81,11 @@ module.exports = {
 
 ## fileExtension
 
-Type: `String`.
+类型：`String`。
 
-Default Value: `.ts`.
+默认值：`.ts`。
 
-Specify the file extension for files generated automatically. Modes such as `tags`, `tags-split`, and `split` do not alter `schema` files; they only pertain to `client` files.
+指定自动生成文件的文件扩展名。`tags`、`tags-split` 和 `split` 等模式不会改变 `schema` 文件；它们只涉及 `client` 文件。
 
 ```js
 module.exports = {
@@ -111,15 +111,15 @@ src/gen/
 
 ## namingConvention
 
-Type: `String`.
+类型：`String`。
 
-Valid values: `camelCase`, `PascalCase`, `snake_case`, `kebab-case`.
+有效值：`camelCase`、`PascalCase`、`snake_case`、`kebab-case`。
 
-Default Value: `camelCase`.
+默认值：`camelCase`。
 
-Specify the naming convention for the generated **files**.
+指定生成**文件**的命名约定。
 
-If you're looking for **property keys** naming convention, see [namingConvention](#namingconvention-for-property-keys).
+如果您要查找**属性键**的命名约定，请参见 [namingConvention](#namingconvention-for-property-keys)。
 
 ```js
 module.exports = {
@@ -146,11 +146,11 @@ src/gen/
 
 ## workspace
 
-Type: `String`.
+类型：`String`。
 
-Valid values: path to the folder which will contains all the generated files. This value will be use as a base for all the other path used in the orval config.
+有效值：包含所有生成文件的文件夹路径。此值将用作 orval 配置中使用的所有其他路径的基础。
 
-If you provide this option, an `index.ts` file will be also created with all the available exports
+如果您提供此选项，还将创建一个包含所有可用导出的 `index.ts` 文件
 
 ```js
 module.exports = {
@@ -165,11 +165,11 @@ module.exports = {
 
 ## mode
 
-Type: `String`.
+类型：`String`。
 
-Valid values: `single`, `split`, `tags`, `tags-split`.
+有效值：`single`、`split`、`tags`、`tags-split`。
 
-Default Value: `single`.
+默认值：`single`。
 
 ```js
 module.exports = {
@@ -181,9 +181,9 @@ module.exports = {
 };
 ```
 
-### Value: single
+### 值：single
 
-Use to have one file with everything
+用于将所有内容放在一个文件中
 
 ```js
 module.exports = {
@@ -202,11 +202,11 @@ my-app
     └── petstore.ts
 ```
 
-Here a single file petstore will be created in src with your specification implementation.
+这里将在 src 中创建一个包含您的规范实现的单个 petstore 文件。
 
-### Value: split
+### 值：split
 
-Use to have implementation, schemas, mock in different files
+用于将实现、模式、模拟放在不同的文件中
 
 ```js
 module.exports = {
@@ -228,19 +228,19 @@ my-app
     └── petstore.ts
 ```
 
-Here depending on the configuration, you will have multiple files named petstore with a prefix created in src.
+根据配置，您将在 src 中创建多个以 petstore 命名并带有前缀的文件。
 
 - petstore.schemas.ts
 - petstore.ts
 - petstore.msw.ts
 
-For Angular:
+对于 Angular：
 
-=> petstore.ts is petstore.service.ts
+=> petstore.ts 是 petstore.service.ts
 
-### Value: tags
+### 值：tags
 
-Use this mode if you want one file by tag. Tag is a reference of the OpenAPI specification tag. If you have a `pets` tag for all your pet calls then Orval will generate a file pets.ts in the target folder
+如果您希望每个标签一个文件，请使用此模式。标签是 OpenAPI 规范标签的引用。如果您的所有宠物调用都有一个 `pets` 标签，那么 Orval 将在目标文件夹中生成一个 pets.ts 文件
 
 ```js
 module.exports = {
@@ -261,15 +261,15 @@ my-app
     └── petstore.schemas.ts
 ```
 
-For Angular:
+对于 Angular：
 
-=> petstore.ts is petstore.service.ts
+=> petstore.ts 是 petstore.service.ts
 
-If you don't use the `schemas` property only one file will be created with all the models for every tag.
+如果您不使用 `schemas` 属性，将只创建一个包含每个标签所有模型的文件。
 
-### Value: tags-split
+### 值：tags-split
 
-This mode is a combination of the tags and split mode. Orval will generate a folder for every tag in the target folder and split into multiple files in those folders.
+此模式是标签和拆分模式的组合。Orval 将在目标文件夹中为每个标签生成一个文件夹，并在这些文件夹中拆分为多个文件。
 
 ```js
 module.exports = {
@@ -292,17 +292,17 @@ my-app
         └── petstore.ts
 ```
 
-Same as the tags mode if you don't use the `schemas` property only one file will be created with all the models for every tag.
+与标签模式相同，如果您不使用 `schemas` 属性，将只创建一个包含每个标签所有模型的文件。
 
 ## indexFiles
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to true.
+有效值：true 或 false。默认为 true。
 
-Specify whether to place `index.ts` in `schemas` generation.
+指定是否在 `schemas` 生成中放置 `index.ts`。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -317,9 +317,9 @@ module.exports = {
 
 ## title
 
-Type: `String` or `Function`.
+类型：`String` 或 `Function`。
 
-Valid values: path or implementation of the function.
+有效值：函数的路径或实现。
 
 ```js
 module.exports = {
@@ -333,20 +333,19 @@ module.exports = {
 
 ## baseUrl
 
-Type: `String | Object`.
+类型：`String | Object`。
 
-Default Value: `''`.
+默认值：`''`。
 
-Allows you to set the baesUrl used for all API calls. This can either be a constant string or be configured to read from the `servers` field
-in the specification.
+允许您设置用于所有 API 调用的 baseUrl。这可以是常量字符串，也可以配置为从规范中的 `servers` 字段读取。
 
-Example using constant:
+使用常量的示例：
 
 ```js
 module.exports = {
   petstore: {
     output: {
-      baseUrl: 'https://api.example.com', // prepend https://api.example.com to all api calls
+      baseUrl: 'https://api.example.com', // 为所有 api 调用添加前缀 https://api.example.com
     },
   },
 };
@@ -354,13 +353,12 @@ module.exports = {
 
 ### getBaseUrlFromSpecification
 
-Type: `boolean`
+类型：`boolean`
 
-Set to `true` to make Orval read the url from the `servers` fields in the specification. If a path has defined a `servers` field,
-that url will be used, otherwise the url from the whole specification's `servers` field will be used.
-If set to `false`, a constant `baseUrl` must be set.
+设置为 `true` 使 Orval 从规范中的 `servers` 字段读取 url。如果路径定义了 `servers` 字段，将使用该 url，否则将使用整个规范的 `servers` 字段中的 url。
+如果设置为 `false`，必须设置常量 `baseUrl`。
 
-Example:
+示例：
 
 ```yaml
 servers:
@@ -377,8 +375,8 @@ module.exports = {
     output: {
       baseUrl: {
         getBaseUrlFromSpecification: true,
-        // prepend url defined in specification, in this example: 'https://api.example.com'
-        // for all calls, except for calls to /pets, which will instead use 'https://pets.example.com' as base url.
+        // 为所有调用添加规范中定义的 url 前缀，在此示例中：'https://api.example.com'
+        // 除了对 /pets 的调用，它将使用 'https://pets.example.com' 作为基础 url。
       },
     },
   },
@@ -387,15 +385,14 @@ module.exports = {
 
 ### variables
 
-Type: `Dictionary`.
+类型：`Dictionary`。
 
-Only valid when `getBaseUrlFromSpecification` is `true`.
-Used to substitute variables in urls.
-If the variable in the specification is an enum, and the provided value in the configuration is not one of the
-allowed values, an error will occur when generating.
-If a variable that is substituted is not configured, the default value defined in the specification will be used.
+仅在 `getBaseUrlFromSpecification` 为 `true` 时有效。
+用于替换 url 中的变量。
+如果规范中的变量是枚举，并且配置中提供的值不是允许值之一，生成时将发生错误。
+如果要替换的变量未配置，将使用规范中定义的默认值。
 
-Example:
+示例：
 
 ```yaml
 servers:
@@ -426,14 +423,14 @@ module.exports = {
 
 ### index
 
-Type: `Number`.
+类型：`Number`。
 
-Only valid when `getBaseUrlFromSpecification` is `true`.
-Since the `servers` field allows for multiple urls to be defined, you can decide which index of urls to pick here.
-If this is not defined, the first url will be used.
-If the defined index is out of range of the array, the last url in the array will be selected.
+仅在 `getBaseUrlFromSpecification` 为 `true` 时有效。
+由于 `servers` 字段允许定义多个 url，您可以在此决定选择哪个 url 索引。
+如果未定义，将使用第一个 url。
+如果定义的索引超出数组范围，将选择数组中的最后一个 url。
 
-Example:
+示例：
 
 ```yaml
 servers:
@@ -456,12 +453,12 @@ module.exports = {
 
 ### baseUrl
 
-Type: `String`.
+类型：`String`。
 
-Only valid when `getBaseUrlFromSpecification` is `false`.
-Behaves the same as setting the baseUrl as a string directly.
+仅在 `getBaseUrlFromSpecification` 为 `false` 时有效。
+行为与直接将 baseUrl 设置为字符串相同。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -469,14 +466,14 @@ module.exports = {
     output: {
       baseUrl: {
         getBaseUrlFromSpecification: false,
-        baseUrl: 'https://api.example.com', // The same as setting petstore.output.baseUrl: 'https://api.example.com'
+        baseUrl: 'https://api.example.com', // 与设置 petstore.output.baseUrl: 'https://api.example.com' 相同
       },
     },
   },
 };
 ```
 
-Gives the same result as:
+与以下设置结果相同：
 
 ```js
 module.exports = {
@@ -490,11 +487,11 @@ module.exports = {
 
 ## mock
 
-Type: `Boolean | Object | Function`.
+类型：`Boolean | Object | Function`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Will generate your mock using <a href="https://github.com/faker-js/faker" target="_blank">faker</a> and <a href="https://mswjs.io/" target="_blank">msw</a> by default (if value set to true).
+默认情况下（如果值设置为 true），将使用 <a href="https://github.com/faker-js/faker" target="_blank">faker</a> 和 <a href="https://mswjs.io/" target="_blank">msw</a> 生成您的模拟数据。
 
 ```js
 module.exports = {
@@ -506,7 +503,7 @@ module.exports = {
 };
 ```
 
-The mock options can take some properties to customize the generation if you set it to an object. If you set it to `true`, the default options will be used. The default options are:
+如果将其设置为对象，模拟选项可以接受一些属性来自定义生成。如果设置为 `true`，将使用默认选项。默认选项为：
 
 ```js
 module.exports = {
@@ -522,72 +519,71 @@ module.exports = {
 };
 ```
 
-If you want you can provide a function to extend or create you custom mock generator and check [here](https://github.com/orval-labs/orval/blob/master/src/types/generator.ts#L132) the type.
+如果您想要扩展或创建自定义模拟生成器，可以提供一个函数，并在[这里](https://github.com/orval-labs/orval/blob/master/src/types/generator.ts#L132)查看类型。
 
-To discover all the available options, read below.
+要了解所有可用选项，请阅读下文。
 
 ### type
 
-Type: `String`.
+类型：`String`。
 
-Default Value: `msw`.
+默认值：`msw`。
 
-Valid values: `msw`, `cypress` (coming soon).
+有效值：`msw`、`cypress`（即将推出）。
 
-Use to specify the mock type you want to generate.
+用于指定要生成的模拟类型。
 
 ### delay
 
-Type: `Number | Function | false`.
+类型：`Number | Function | false`。
 
-Default Value: `1000`.
+默认值：`1000`。
 
-Use to specify the delay time for the mock. It can either be a fixed number, false or a function that returns a number.
-Setting delay to false removes the delay call completely.
+用于指定模拟的延迟时间。它可以是固定数字、false 或返回数字的函数。
+将 delay 设置为 false 会完全移除延迟调用。
 
 ### delayFunctionLazyExecute
 
-Type: `boolean`.
+类型：`boolean`。
 
-Gives you the possibility to have functions that are passed to `delay` to be
-executed at runtime rather than when the mocks are generated.
+为您提供将传递给 `delay` 的函数在运行时执行而不是在生成模拟时执行的可能性。
 
 ### useExamples
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Gives you the possibility to use the `example`/`examples` fields from your OpenAPI specification as mock values.
+为您提供使用 OpenAPI 规范中的 `example`/`examples` 字段作为模拟值的可能性。
 
 ### generateEachHttpStatus
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Gives you the possibility to generate mocks for all the HTTP statuses in the `responses` fields in your OpenAPI specification. By default only the 200 OK response is generated.
+为您提供为 OpenAPI 规范中 `responses` 字段中的所有 HTTP 状态生成模拟的可能性。默认情况下只生成 200 OK 响应。
 
 ### baseUrl
 
-Type: `String`.
+类型：`String`。
 
-Give you the possibility to set base url to your mock handlers.
+为您提供为模拟处理程序设置基础 url 的可能性。
 
 ### locale
 
-Type: `String`.
+类型：`String`。
 
-Default Value: `en`.
+默认值：`en`。
 
-Give you the possibility to set the locale for the mock generation. It is used by faker, see the list of available options [here](https://fakerjs.dev/guide/localization.html#available-locales). It should also be strongly typed using `defineConfig`.
+为您提供为模拟生成设置区域设置的可能性。它由 faker 使用，可用选项列表请参见[这里](https://fakerjs.dev/guide/localization.html#available-locales)。使用 `defineConfig` 时也应该是强类型的。
 
 ## indexMockFiles
 
-Type: `Boolean`
+类型：`Boolean`
 
-Default Value: `false`.
+默认值：`false`。
 
-When `true`, adds a `index.msw.ts` file which exports all mock functions.
-This is only valid when `mode` is `tags-split`.
+当为 `true` 时，添加一个导出所有模拟函数的 `index.msw.ts` 文件。
+这仅在 `mode` 为 `tags-split` 时有效。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -604,89 +600,89 @@ module.exports = {
 
 ## docs
 
-Type: `Boolean | Object`.
+类型：`Boolean | Object`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Will generate API docs using [TypeDoc](https://typedoc.org/). by default these docs will be in Markdown format.
+将使用 [TypeDoc](https://typedoc.org/) 生成 API 文档。默认情况下，这些文档将采用 Markdown 格式。
 
-TypeDoc can be configured by passing the [options](https://typedoc.org/options/) to the `docs` object or by creating a config file e.g. `typedoc.config.mjs` in your project root (see the [config docs](https://typedoc.org/options/configuration/#options) for a full list of supported file names) or by passing a config filename to the `configPath` option below.
+TypeDoc 可以通过将[选项](https://typedoc.org/options/)传递给 `docs` 对象来配置，或者通过在项目根目录中创建配置文件（例如 `typedoc.config.mjs`）（支持的文件名完整列表请参见[配置文档](https://typedoc.org/options/configuration/#options)），或者通过将配置文件名传递给下面的 `configPath` 选项来配置。
 
-See the TypeDoc [configuration documentation](https://typedoc.org/options/) for more details.
+更多详细信息请参见 TypeDoc [配置文档](https://typedoc.org/options/)。
 
-The `docs` option can take some properties to customize the generation if you set it to an object. If you set it to `true`, the default options will be used.
+如果将 `docs` 选项设置为对象，它可以接受一些属性来自定义生成。如果设置为 `true`，将使用默认选项。
 
-When no output directory destination is specified in `config`, the file will be output to the `docs` directory by default.
+当 `config` 中未指定输出目录目标时，文件将默认输出到 `docs` 目录。
 
-For example configuration, see this [sample](https://github.com/orval-labs/orval/tree/master/samples/react-app/orval.config.ts).
+配置示例请参见此[示例](https://github.com/orval-labs/orval/tree/master/samples/react-app/orval.config.ts)。
 
 ### configPath
 
-Type: `String`.
+类型：`String`。
 
-Use to specify a TypeDoc config filename. This can be useful if your project already has a TypeDoc config for other docs.
+用于指定 TypeDoc 配置文件名。如果您的项目已经有用于其他文档的 TypeDoc 配置，这会很有用。
 
 ## clean
 
-Type: `Boolean | String[]`.
+类型：`Boolean | String[]`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Can be used to clean generated files. Provide an array of glob if you want to customize what is deleted.
+可用于清理生成的文件。如果要自定义删除的内容，请提供 glob 数组。
 
-Be careful clean all output target and schemas folder.
+小心清理所有输出目标和模式文件夹。
 
 ## prettier
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Can be used to prettier generated files. You need to have prettier installed globally.
+可用于美化生成的文件。您需要全局安装 prettier。
 
 ## biome
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `false`.
+默认值：`false`。
 
-You can apply `lint` and `format` of [`biome`](https://biomejs.dev/) to the generated file. You need to have `@biomejs/biome` in your dependencies.
+您可以对生成的文件应用 [`biome`](https://biomejs.dev/) 的 `lint` 和 `format`。您需要在依赖项中包含 `@biomejs/biome`。
 
-The automatically generated source code does not comply with some lint rules included in the default ruleset for `biome`, so please control them in the your `biome` configuration file.
+自动生成的源代码不符合 `biome` 默认规则集中包含的某些 lint 规则，因此请在您的 `biome` 配置文件中控制它们。
 
 ## headers
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to enable the generation of the headers
+用于启用头部的生成
 
 ## tsconfig
 
-Type: `String | Tsconfig`.
+类型：`String | Tsconfig`。
 
-Should be automatically found and transparent for you.
-Can be used to specify the path to your `tsconfig` or directly your config.
+应该自动找到并对您透明。
+可用于指定 `tsconfig` 的路径或直接指定您的配置。
 
 ## packageJson
 
-Type: `String`.
+类型：`String`。
 
-Should be automatically found and transparent for you.
-Can be used to specify the path to your `package.json`.
+应该自动找到并对您透明。
+可用于指定 `package.json` 的路径。
 
 ## override
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to override the output like your mock implementation or transform the API implementation like you want
+为您提供覆盖输出的可能性，如您的模拟实现或按您想要的方式转换 API 实现
 
 ### transformer
 
-Type: `String` or `Function`.
+类型：`String` 或 `Function`。
 
-Valid values: path or implementation of the transformer function.
+有效值：转换器函数的路径或实现。
 
-This function is executed for each call when you generate and take in argument a <a href="https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L823" target="_blank">GeneratorVerbOptions</a> and should return a <a href="https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L823" target="_blank">GeneratorVerbOptions</a>
+此函数在生成时为每个调用执行，接受 <a href="https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L823" target="_blank">GeneratorVerbOptions</a> 作为参数，并应返回 <a href="https://github.com/orval-labs/orval/blob/master/packages/core/src/types.ts#L823" target="_blank">GeneratorVerbOptions</a>
 
 ```js
 module.exports = {
@@ -702,20 +698,20 @@ module.exports = {
 
 ### mutator
 
-Type: `String` or `Object`.
+类型：`String` 或 `Object`。
 
-Valid values: path of the mutator function or object with a path and name.
+有效值：mutator 函数的路径或包含路径和名称的对象。
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-This function is executed for each call when this one is executed. It takes all the options passed to the verb as an argument and should return a promise with your custom implementation or preferred HTTP client.
+此函数在每次调用时执行。它将传递给动词的所有选项作为参数，并应返回带有您的自定义实现或首选 HTTP 客户端的 promise。
 
-Possible arguments:
+可能的参数：
 
-- The first argument will be an object with the following type.
+- 第一个参数将是具有以下类型的对象。
 
 ```ts
-// based on AxiosRequestConfig
+// 基于 AxiosRequestConfig
 interface RequestConfig {
   method: 'get' | 'put' | 'patch' | 'post' | 'delete';
   url: string;
@@ -725,9 +721,9 @@ interface RequestConfig {
 }
 ```
 
-- The second argument is only provided for the Angular client and give an instance of HttpClient
+- 第二个参数仅为 Angular 客户端提供，并给出 HttpClient 的实例
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -766,13 +762,13 @@ export const customInstance = <T>(config: AxiosRequestConfig): Promise<T> => {
   return promise;
 };
 
-// In some case with react-query and swr you want to be able to override the return error type so you can also do it here like this
+// 在某些情况下，使用 react-query 和 swr 时，您希望能够覆盖返回错误类型，因此您也可以在这里这样做
 export type ErrorType<Error> = AxiosError<Error>;
 ```
 
-- If your file have some alias you will also need to define them in the mutator object.
+- 如果您的文件有一些别名，您还需要在 mutator 对象中定义它们。
 
-Example:
+示例：
 
 ```ts
 // custom-instance.ts
@@ -817,9 +813,9 @@ module.exports = {
 };
 ```
 
-- If you use one of the following clients `react-query`, `vue-query` and `svelte-query`. You can also provide a hook like this
+- 如果您使用以下客户端之一：`react-query`、`vue-query` 和 `svelte-query`。您也可以像这样提供一个钩子
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -848,7 +844,7 @@ export const AXIOS_INSTANCE = Axios.create({ baseURL: '' });
 export const useCustomInstance = <T>(): ((
   config: AxiosRequestConfig,
 ) => Promise<T>) => {
-  const token = useToken(); // Do what you want
+  const token = useToken(); // 做您想做的事
 
   return (config: AxiosRequestConfig) => {
     const source = Axios.CancelToken.source();
@@ -874,9 +870,9 @@ export default useCustomInstance;
 export type ErrorType<Error> = AxiosError<Error>;
 ```
 
-- If you use ES modules (`"type": "module"`). You can also provide a hook like this
+- 如果您使用 ES 模块（`"type": "module"`）。您也可以像这样提供一个钩子
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -894,17 +890,17 @@ module.exports = {
 };
 ```
 
-The generated file will import the mutator with a `.js` extension.
+生成的文件将使用 `.js` 扩展名导入 mutator。
 
 #### header
 
-Type: `Boolean | Function`.
+类型：`Boolean | Function`。
 
-Default Value: `true`.
+默认值：`true`。
 
-Use this property to disable the auto generation of the file header
+使用此属性禁用文件头的自动生成
 
-You can provide a function to customize the way you want the generate the file header. You will receive the info object of the specification in argument and you should return an array of string.
+您可以提供一个函数来自定义生成文件头的方式。您将接收规范的 info 对象作为参数，并应返回字符串数组。
 
 ```ts
 module.exports = {
@@ -924,15 +920,15 @@ module.exports = {
 };
 ```
 
-#### namingConvention for property keys
+#### 属性键的命名约定
 
-Type: `Object`.
+类型：`Object`。
 
-Change output naming convention generated **for property keys**.
+更改为**属性键**生成的输出命名约定。
 
-**By default, preserves keys** naming convention as is.
+**默认情况下，保留键**的命名约定不变。
 
-If you're looking **for file** naming convention, see [namingConvention](#namingconvention).
+如果您要查找**文件**命名约定，请参见 [namingConvention](#namingconvention)。
 
 ```ts
 
@@ -953,18 +949,18 @@ module.exports = {
 
 ##### Enum
 
-Type: `String`.
+类型：`String`。
 
-Changes naming convention for **enum** keys. All generated [enum types](#enumgenerationtype) supported.
+更改**枚举**键的命名约定。支持所有生成的[枚举类型](#enumgenerationtype)。
 
-Valid values: : `camelCase`, `PascalCase`, `snake_case`, `kebab-case`.
-_same as for file_ [namingConvention](#namingconvention).
+有效值：`camelCase`、`PascalCase`、`snake_case`、`kebab-case`。
+_与文件_ [namingConvention](#namingconvention) _相同_。
 
 #### fetch
 
-Type: `Object`.
+类型：`Object`。
 
-Give options to the generated `fetch` client.
+为生成的 `fetch` 客户端提供选项。
 
 ```js
 module.exports = {
@@ -984,28 +980,28 @@ module.exports = {
 
 ##### includeHttpResponseReturnType
 
-Type: `Boolean`.
-Default: `true`
+类型：`Boolean`。
+默认值：`true`
 
-When using `fetch` for `client` or `httpClient`, the `fetch` response type includes http status for easier processing by the application.
-If you want to return a defined return type instead of an automatically generated return type, set this value to `false`.
+当使用 `fetch` 作为 `client` 或 `httpClient` 时，`fetch` 响应类型包含 http 状态，以便应用程序更容易处理。
+如果您想返回定义的返回类型而不是自动生成的返回类型，请将此值设置为 `false`。
 
 ##### explode
 
-Type: `Boolean`.
-Default: `true`
+类型：`Boolean`。
+默认值：`true`
 
-By default, the `fetch` client follows the OpenAPI specification for query parameter explode behavior. This means that query parameters will be exploded unless explicitly set to `false` in the OpenAPI schema.
+默认情况下，`fetch` 客户端遵循 OpenAPI 规范的查询参数展开行为。这意味着查询参数将被展开，除非在 OpenAPI 模式中明确设置为 `false`。
 
-If you want to maintain backward compatibility with the previous behavior (where only parameters with `explode: true` are exploded), you can set this value to `false`.
+如果您想保持与之前行为的向后兼容性（只有 `explode: true` 的参数才会被展开），可以将此值设置为 `false`。
 
 ##### jsonReviver
 
-Type: `String` or `Object`
+类型：`String` 或 `Object`
 
-Allows you to provide a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#reviver" target="_blank">reviver</a> function to the fetch client when it parses JSON. It is recommended to use this to revive dates when setting <a href="#usedates">useDates</a> to `true`
+允许您在 fetch 客户端解析 JSON 时提供 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#reviver" target="_blank">reviver</a> 函数。建议在设置 <a href="#usedates">useDates</a> 为 `true` 时使用此功能来恢复日期。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1040,9 +1036,9 @@ export function customReviver(key: string, value: unknown) {
 
 #### query
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to override the generated <a href="https://react-query.tanstack.com/" target="_blank">query</a>
+为您提供覆盖生成的 <a href="https://react-query.tanstack.com/" target="_blank">query</a> 的可能性
 
 ```js
 module.exports = {
@@ -1068,34 +1064,34 @@ module.exports = {
 
 ##### useQuery
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://tanstack.com/query/latest/docs/react/reference/useQuery" target="_blank">useQuery</a> custom hook.
-If the query key isn't provided that's the default hook generated.
+用于生成 <a href="https://tanstack.com/query/latest/docs/react/reference/useQuery" target="_blank">useQuery</a> 自定义钩子。
+如果未提供查询键，这是生成的默认钩子。
 
 ##### useMutation
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://tanstack.com/query/latest/docs/react/reference/useMutation" target="_blank">useMutation</a> custom hook.
-The hook will only be generated if the operation is not a `GET` operation, and not configured to generate a [query](#useQuery).
+用于生成 <a href="https://tanstack.com/query/latest/docs/react/reference/useMutation" target="_blank">useMutation</a> 自定义钩子。
+只有当操作不是 `GET` 操作，且未配置生成 [query](#useQuery) 时，才会生成该钩子。
 
-The [operations override](#operations) will take precedence if both are configured.
+如果两者都配置了，[operations override](#operations) 将优先。
 
 ##### useInfinite
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://tanstack.com/query/latest/docs/react/reference/useInfiniteQuery" target="_blank">useInfiniteQuery</a> custom hook.
+用于生成 <a href="https://tanstack.com/query/latest/docs/react/reference/useInfiniteQuery" target="_blank">useInfiniteQuery</a> 自定义钩子。
 
 ##### usePrefetch
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://tanstack.com/query/v4/docs/react/guides/prefetching" target="_blank">prefetching</a> functions.
-This may be useful for the NextJS SSR or any prefetching situations.
+用于生成 <a href="https://tanstack.com/query/v4/docs/react/guides/prefetching" target="_blank">预取</a> 函数。
+这对于 NextJS SSR 或任何预取情况可能很有用。
 
-Example generated function:
+生成函数示例：
 
 ```js
 export const prefetchGetCategories = async <
@@ -1122,25 +1118,25 @@ export const prefetchGetCategories = async <
 
 ##### useInfiniteQueryParam
 
-Type: `String`.
+类型：`String`。
 
-Use to automatically add to the request the query param provided by the useInfiniteQuery when you use `getFetchMore` function.
+用于在使用 `getFetchMore` 函数时自动将 useInfiniteQuery 提供的查询参数添加到请求中。
 
-##### options (deprecated use queryOptions instead)
+##### options（已弃用，请使用 queryOptions）
 
-Type: `Object`.
+类型：`Object`。
 
-Use to override the query config. Check available options <a href="https://tanstack.com/query/latest/docs/react/reference/useQuery" target="_blank">here</a>
+用于覆盖查询配置。可用选项请查看<a href="https://tanstack.com/query/latest/docs/react/reference/useQuery" target="_blank">这里</a>
 
 ##### queryKey
 
-Type: `String` or `Object`.
+类型：`String` 或 `Object`。
 
-Valid values: path of the `queryKey` function or object with a path and name.
+有效值：`queryKey` 函数的路径或包含路径和名称的对象。
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1162,13 +1158,13 @@ module.exports = {
 
 ##### queryOptions
 
-Type: `String` or `Object`.
+类型：`String` 或 `Object`。
 
-Valid values: path of the `queryOptions` function or object with a path and name.
+有效值：`queryOptions` 函数的路径或包含路径和名称的对象。
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1190,13 +1186,13 @@ module.exports = {
 
 ##### mutationOptions
 
-Type: `String` or `Object`.
+类型：`String` 或 `Object`。
 
-Valid values: path of the `mutationOptions` function or object with a path and name.
+有效值：`mutationOptions` 函数的路径或包含路径和名称的对象。
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1238,64 +1234,64 @@ export const useCustomMutatorOptions = <
 ): OptionsWithMutationFn<T, TError, TData, TContext> => {
   const queryClient = useQueryClient();
   if (options.mutationKey?.[0] === 'petDestroy') {
-    // Note: `options.mutationKey?.[0]` is untyped.
+    // 注意：`options.mutationKey?.[0]` 是无类型的。
     options.onSuccess = (_data, variables, _context) => {
-      // Note: `variables` is untyped.
+      // 注意：`variables` 是无类型的。
       options.onSuccess?.(data, variables, context);
-      // Note: `queryKey` is hardcoded, can't use `getGetPetQueryKey()` as it would introduce circular dependencies.
+      // 注意：`queryKey` 是硬编码的，不能使用 `getGetPetQueryKey()`，因为这会引入循环依赖。
       queryClient.invalidateQueries({
         queryKey: ['api', 'v2', 'pet', variables.id],
       });
     };
   }
-  // TODO: add more ifs for each mutation.
+  // TODO: 为每个 mutation 添加更多 if 语句。
   return options;
 };
 ```
 
 ##### signal
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to remove the generation of the abort signal provided by <a href="https://react-query.tanstack.com/" target="_blank">query</a>
+用于移除 <a href="https://react-query.tanstack.com/" target="_blank">query</a> 提供的中止信号的生成
 
 ##### shouldExportMutatorHooks
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `true`.
+默认值：`true`。
 
-Use to stop the export of mutator hooks. Useful if you want to rely soley on useQuery, useSuspenseQuery, etc.
+用于停止导出 mutator 钩子。如果您想完全依赖 useQuery、useSuspenseQuery 等，这很有用。
 
 ##### shouldExportQueryKey
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `true`.
+默认值：`true`。
 
-Use to stop the export of query keys.
+用于停止导出查询键。
 
 ##### shouldSplitQueryKey
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Use to make Orval generate query keys as arrays instead of strings.
+用于使 Orval 生成数组形式的查询键而不是字符串。
 
 ##### version
 
-Type: `number`.
+类型：`number`。
 
-Default Value: `Detect from package json`.
+默认值：`从 package json 检测`。
 
-Use to specify a version for the generated hooks. This is useful if you want to force a version for the hooks.
+用于为生成的钩子指定版本。如果您想强制为钩子指定版本，这很有用。
 
 #### angular
 
-Type: `Object`.
+类型：`Object`。
 
-Give you specific options for the angular client
+为 angular 客户端提供特定选项
 
 ```js
 module.exports = {
@@ -1315,19 +1311,19 @@ module.exports = {
 
 ##### provideIn
 
-Type: `Boolean` or `String`.
+类型：`Boolean` 或 `String`。
 
-Valid values: `true`, `false`, `'root'`, `'any'`, `''`.
+有效值：`true`、`false`、`'root'`、`'any'`、`''`。
 
-Default Value: `'root'`.
+默认值：`'root'`。
 
-Can be used to set the value of `providedIn` on the generated Angular services. If `false`, no `providedIn` will be set. If `true` or not specified, it will fall back to the default value: `root`.
+可用于设置生成的 Angular 服务上的 `providedIn` 值。如果为 `false`，将不设置 `providedIn`。如果为 `true` 或未指定，将回退到默认值：`root`。
 
 #### swr
 
-Type: `Object`.
+类型：`Object`。
 
-Give options to the generated `swr` client. It is also possible to extend the generated functions.
+为生成的 `swr` 客户端提供选项。也可以扩展生成的函数。
 
 ```js
 module.exports = {
@@ -1347,17 +1343,17 @@ module.exports = {
 
 ##### useInfinite
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://swr.vercel.app/docs/pagination#useswrinfinite" target="_blank">useSWRInfinite</a> custom hook.
+用于生成 <a href="https://swr.vercel.app/docs/pagination#useswrinfinite" target="_blank">useSWRInfinite</a> 自定义钩子。
 
 ##### useSWRMutationForGet
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Use to generate a <a href="https://swr.vercel.app/docs/mutation#useswrmutation" target="_blank">useSWRMutation</a> custom hook for get request.
+用于为 get 请求生成 <a href="https://swr.vercel.app/docs/mutation#useswrmutation" target="_blank">useSWRMutation</a> 自定义钩子。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1377,11 +1373,11 @@ module.exports = {
 
 ##### swrOptions
 
-Type: `Object`.
+类型：`Object`。
 
-Use to override the `useSwr` options. Check available options [here](https://swr.vercel.app/docs/api#options)
+用于覆盖 `useSwr` 选项。可用选项请查看[这里](https://swr.vercel.app/docs/api#options)
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1401,11 +1397,11 @@ module.exports = {
 
 ##### swrMutationOptions
 
-Type: `Object`.
+类型：`Object`。
 
-Use to override the `useSWRMutation` options. Check available options [here](https://swr.vercel.app/docs/mutation#useswrmutation-parameters)
+用于覆盖 `useSWRMutation` 选项。可用选项请查看[这里](https://swr.vercel.app/docs/mutation#useswrmutation-parameters)
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1425,11 +1421,11 @@ module.exports = {
 
 ##### swrInfiniteOptions
 
-Type: `Object`.
+类型：`Object`。
 
-Use to override the `useSWRInfinite` options. Check available options [here](https://swr.vercel.app/docs/pagination#parameters)
+用于覆盖 `useSWRInfinite` 选项。可用选项请查看[这里](https://swr.vercel.app/docs/pagination#parameters)
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1449,9 +1445,9 @@ module.exports = {
 
 #### zod
 
-Type: `Object`.
+类型：`Object`。
 
-Give you specific options for the zod client
+为 zod 客户端提供特定选项
 
 ```js
 module.exports = {
@@ -1484,21 +1480,21 @@ module.exports = {
 
 ##### strict
 
-Type: `Object`.
+类型：`Object`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Use to set the strict mode for the zod schema. If you set it to true, the schema will be generated with the strict mode.
+用于为 zod 模式设置严格模式。如果设置为 true，模式将以严格模式生成。
 
 ##### generate
 
-Type: `Object`.
+类型：`Object`。
 
-Default Value: `true`.
+默认值：`true`。
 
-Use to set the which type of schemas you want to generate for the zod schema.
+用于设置要为 zod 模式生成哪种类型的模式。
 
-example:
+示例：
 
 ```js
 module.exports = {
@@ -1522,19 +1518,19 @@ module.exports = {
 };
 ```
 
-In the above example exclude response body validations not generated
+在上面的示例中，排除响应体验证不会生成
 
 ##### coerce
 
-Type: `Object`.
+类型：`Object`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Use to set the coerce for the zod schema. If you set it to true, the schema will be generated with the coerce on possible types.
+用于为 zod 模式设置强制转换。如果设置为 true，模式将在可能的类型上生成强制转换。
 
-You can also provide an array of coerce types to only generate the coerce types for the specified types.
+您还可以提供强制转换类型数组，仅为指定类型生成强制转换类型。
 
-example:
+示例：
 
 ```js
 module.exports = {
@@ -1557,11 +1553,11 @@ module.exports = {
 
 ##### preprocess
 
-Type: `Object`.
+类型：`Object`。
 
-Use to add preprocess function to a zod schema. You can use a custom mutator to preprocess the data before it is validated.
+用于向 zod 模式添加预处理函数。您可以使用自定义 mutator 在验证之前预处理数据。
 
-example:
+示例：
 
 ```js
 module.exports = {
@@ -1586,9 +1582,9 @@ module.exports = {
 
 ##### generateEachHttpStatus
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Gives you the possibility to generate mocks for all the HTTP statuses in the `responses` fields in your OpenAPI specification. By default only the 200 OK response is generated.
+为您提供为 OpenAPI 规范中 `responses` 字段中的所有 HTTP 状态生成模拟的可能性。默认情况下只生成 200 OK 响应。
 
 ```js
 module.exports = {
@@ -1666,15 +1662,15 @@ You can find more details in the [zod documentation ](https://zod.dev/?id=times)
 
 #### mock
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to override the generated mock
+为您提供覆盖生成的模拟的可能性
 
 ##### properties
 
-Type: `Object` or `Function`.
+类型：`Object` 或 `Function`。
 
-You can use this to override the generated mock per property. Properties can take a function who take the specification in argument and should return un object or directly the object. Each key of this object can be a regex or directly the path of the property to override and the value can be a function which return the wanted value or directly the value. If you use a function this will be executed at runtime.
+您可以使用此功能按属性覆盖生成的模拟。Properties 可以接受一个函数，该函数将规范作为参数并应返回一个对象或直接返回对象。此对象的每个键可以是正则表达式或要覆盖的属性的直接路径，值可以是返回所需值的函数或直接值。如果使用函数，这将在运行时执行。
 
 ```js
 module.exports = {
@@ -1683,10 +1679,10 @@ module.exports = {
       override: {
         mock: {
           properties: {
-            '/tag|name/': 'jon', // Matches every property named 'tag' or 'name', including nested ones
-            '/.*.user.id/': faker.string.uuid(), // Matches every property named 'id', inside an object named 'user', including nested ones
-            email: () => faker.internet.email(), // Matches only the property 'email'
-            'user.id': () => faker.string.uuid(), // Matches only the full path 'user.id'
+            '/tag|name/': 'jon', // 匹配每个名为 'tag' 或 'name' 的属性，包括嵌套的
+            '/.*.user.id/': faker.string.uuid(), // 匹配名为 'user' 的对象内名为 'id' 的每个属性，包括嵌套的
+            email: () => faker.internet.email(), // 仅匹配属性 'email'
+            'user.id': () => faker.string.uuid(), // 仅匹配完整路径 'user.id'
           },
         },
       },
@@ -1697,9 +1693,9 @@ module.exports = {
 
 ##### format
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to put a value for a `format`. In your specification, if you put a `format: email` to a property Orval will automatically generate a random email for you. See the default available format <a href="https://github.com/orval-labs/orval/blob/master/packages/mock/src/faker/constants.ts" target="_blank">here</a>.
+为您提供为 `format` 设置值的可能性。在您的规范中，如果您为属性设置 `format: email`，Orval 将自动为您生成随机电子邮件。默认可用格式请参见<a href="https://github.com/orval-labs/orval/blob/master/packages/mock/src/faker/constants.ts" target="_blank">这里</a>。
 
 ```js
 module.exports = {
@@ -1720,9 +1716,9 @@ module.exports = {
 
 ##### required
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Give you the possibility to set every property as required.
+为您提供将每个属性设置为必需的可能性。
 
 ```js
 module.exports = {
@@ -1740,12 +1736,12 @@ module.exports = {
 
 ##### delay
 
-Type: `number`, `Function` or `false`.
+类型：`number`、`Function` 或 `false`。
 
-Give you the possibility to set delay time for mock. It can either be a fixed number, false or a function that returns a number.
-Setting delay to false removes the delay call completely.
+为您提供为模拟设置延迟时间的可能性。它可以是固定数字、false 或返回数字的函数。
+将 delay 设置为 false 会完全移除延迟调用。
 
-Default Value: `1000`
+默认值：`1000`
 
 ```js
 module.exports = {
@@ -1763,22 +1759,21 @@ module.exports = {
 
 ##### delayFunctionLazyExecute
 
-Type: `boolean`.
+类型：`boolean`。
 
-Gives you the possibility to have functions that are passed to `delay` to be
-executed at runtime rather than when the mocks are generated.
+为您提供将传递给 `delay` 的函数在运行时执行而不是在生成模拟时执行的可能性。
 
 ##### generateEachHttpStatus
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Gives you the possibility to generate mocks for all the HTTP statuses in the `responses` fields in your OpenAPI specification.
+为您提供为 OpenAPI 规范中 `responses` 字段中的所有 HTTP 状态生成模拟的可能性。
 
 ##### arrayMin
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default minimum length of generated arrays for properties that specify multiple items. Used if `minItems` is not defined for the property. (Default is `1`)
+为指定多个项目的属性设置生成数组的默认最小长度。如果属性未定义 `minItems`，则使用此值。（默认为 `1`）
 
 ```js
 module.exports = {
@@ -1796,9 +1791,9 @@ module.exports = {
 
 ##### arrayMax
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default maximum length of generated arrays for properties that specify multiple items. Used if `maxItems` is not defined for the property. (Default is `10`)
+为指定多个项目的属性设置生成数组的默认最大长度。如果属性未定义 `maxItems`，则使用此值。（默认为 `10`）
 
 ```js
 module.exports = {
@@ -1816,9 +1811,9 @@ module.exports = {
 
 ##### stringMin
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default minimum length of generated strings. Used if `minLength` is not defined for the property. (Default is `10`)
+设置生成字符串的默认最小长度。如果属性未定义 `minLength`，则使用此值。（默认为 `10`）
 
 ```js
 module.exports = {
@@ -1836,9 +1831,9 @@ module.exports = {
 
 ##### stringMax
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default maximum length of generated strings. Used if `maxLength` is not defined for the property. (Default is `20`)
+设置生成字符串的默认最大长度。如果属性未定义 `maxLength`，则使用此值。（默认为 `20`）
 
 ```js
 module.exports = {
@@ -1856,9 +1851,9 @@ module.exports = {
 
 ##### numberMin
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default minimum value of generated numbers. Used if `minimum` is not defined for the property.
+设置生成数字的默认最小值。如果属性未定义 `minimum`，则使用此值。
 
 ```js
 module.exports = {
@@ -1876,9 +1871,9 @@ module.exports = {
 
 ##### numberMax
 
-Type: `Number`.
+类型：`Number`。
 
-Set the default maximum value of generated numbers. Used if `maximum` is not defined for the property.
+设置生成数字的默认最大值。如果属性未定义 `maximum`，则使用此值。
 
 ```js
 module.exports = {
@@ -1896,9 +1891,9 @@ module.exports = {
 
 ##### fractionDigits
 
-Type: `Number`.
+类型：`Number`。
 
-Set number of decimals displayed in floating-point numbers. (Default is `2`)
+设置浮点数中显示的小数位数。（默认为 `2`）
 
 ```js
 module.exports = {
@@ -1916,7 +1911,7 @@ module.exports = {
 
 ##### useExamples
 
-An extension of the global mock option. If set to `true`, the mock generator will use the `example` property of the specification to generate the mock. If the `example` property is not set, the mock generator will fallback to the default behavior. Will override the global option.
+全局模拟选项的扩展。如果设置为 `true`，模拟生成器将使用规范的 `example` 属性来生成模拟。如果未设置 `example` 属性，模拟生成器将回退到默认行为。将覆盖全局选项。
 
 ```js
 module.exports = {
@@ -1934,15 +1929,15 @@ module.exports = {
 
 ##### baseUrl
 
-Type: `String`.
+类型：`String`。
 
-Give you the possibility to set base url to your mock handlers. Will override the global option.
+为您提供为模拟处理程序设置基础 url 的可能性。将覆盖全局选项。
 
 #### hono
 
-Type: `Object`
+类型：`Object`
 
-Give you the possibility to override the generated `hono`
+为您提供覆盖生成的 `hono` 的可能性
 
 ```js
 module.exports = {
@@ -1962,11 +1957,11 @@ module.exports = {
 
 ##### handlers
 
-Type: `String`.
+类型：`String`。
 
-You can specify the output path for the `hono` handler.
+您可以指定 `hono` 处理程序的输出路径。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -1982,7 +1977,7 @@ module.exports = {
 };
 ```
 
-Then it will be generated as below:
+然后将生成如下结构：
 
 ```
 src/
@@ -2002,17 +1997,17 @@ src/
 
 ##### validatorOutputPath
 
-Type: `String`.
+类型：`String`。
 
-You can change the validator output path
+您可以更改验证器输出路径
 
 ##### compositeRoute
 
-Type: `String`.
+类型：`String`。
 
-You can output a file that defines a `hono` instance that composite routes.
+您可以输出一个定义复合路由的 `hono` 实例的文件。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2028,7 +2023,7 @@ module.exports = {
 };
 ```
 
-Then it will be generated as below:
+然后将生成如下结构：
 
 ```
 src/
@@ -2046,9 +2041,9 @@ src/
 
 #### components
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to override the models
+为您提供覆盖模型的可能性
 
 ```js
 module.exports = {
@@ -2077,15 +2072,15 @@ module.exports = {
 
 #### operations
 
-Type: `Object`.
+类型：`Object`。
 
-Give you the possibility to override the generated mock by <a href="https://swagger.io/docs/specification/paths-and-operations/" target="_blank">operationId</a>.
+为您提供通过 <a href="https://swagger.io/docs/specification/paths-and-operations/" target="_blank">operationId</a> 覆盖生成的模拟的可能性。
 
-Each key of the object should be an operationId and take as value an object.
+对象的每个键应该是一个 operationId，并以对象作为值。
 
-The value object can take the same properties as the override property (mutator,query,transformer,mock).
+值对象可以采用与 override 属性相同的属性（mutator、query、transformer、mock）。
 
-The mock options have one more possibility the data property. Which can take a function or the value directly. The function will be executed at runtime.
+模拟选项还有一个可能性是 data 属性。它可以接受函数或直接值。函数将在运行时执行。
 
 ```js
 module.exports = {
@@ -2125,39 +2120,38 @@ module.exports = {
 
 #### tags
 
-Type: `Object`.
+类型：`Object`。
 
-Exactly the same as the `override.operations` but this time you can do it by <a href="https://swagger.io/docs/specification/grouping-operations-with-tags/" target="_blank">tags</a>
+与 `override.operations` 完全相同，但这次您可以通过 <a href="https://swagger.io/docs/specification/grouping-operations-with-tags/" target="_blank">标签</a> 来执行
 
 #### operationName
 
-Type: `Function`.
+类型：`Function`。
 
 ```ts
-// type signature
+// 类型签名
 (operation: OperationObject, route: string, verb: Verbs) => string;
 ```
 
-Function to override the generate operation name.
+用于覆盖生成的操作名称的函数。
 
 #### requestOptions
 
-Type: `Object | Boolean`.
+类型：`Object | Boolean`。
 
-Use this property to provide a config to your http client or completely remove the request options property from the generated files.
+使用此属性为您的 http 客户端提供配置或完全从生成的文件中移除请求选项属性。
 
 #### formData
 
-Type: `Boolean` or `String` or `Object`.
+类型：`Boolean` 或 `String` 或 `Object`。
 
-Valid values: path of the formData function or object with a path and name. You can also define how
-the names of form entries are handled regarding arrays.
+有效值：formData 函数的路径或包含路径和名称的对象。您还可以定义如何处理关于数组的表单条目名称。
 
-Use this property to disable the auto generation of form data if you use multipart
+使用此属性在使用 multipart 时禁用表单数据的自动生成
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2176,9 +2170,9 @@ module.exports = {
 ```
 
 ```ts
-// type signature
+// 类型签名
 export const customFormDataFn = <Body>(body: Body): FormData => {
-  // do your implementation to transform it to FormData
+  // 执行您的实现以将其转换为 FormData
 
   return FormData;
 };
@@ -2186,9 +2180,9 @@ export const customFormDataFn = <Body>(body: Body): FormData => {
 
 ##### mutator
 
-Type: `String` | `Object`
+类型：`String` | `Object`
 
-Same as defining the mutator directly on `formData`, but this way you can specify `arrayHandling` as well.
+与直接在 `formData` 上定义 mutator 相同，但这样您也可以指定 `arrayHandling`。
 
 ```js
 module.exports = {
@@ -2209,11 +2203,11 @@ module.exports = {
 
 ##### arrayHandling
 
-Type: `serialize` | `serialize-with-brackets` | `explode`
+类型：`serialize` | `serialize-with-brackets` | `explode`
 
-Default Value: `serialize`
+默认值：`serialize`
 
-Decides how FormData generation handles arrays.
+决定 FormData 生成如何处理数组。
 
 ```js
 module.exports = {
@@ -2233,7 +2227,7 @@ module.exports = {
 };
 ```
 
-For all of the following examples, this specificaiton is used:
+对于以下所有示例，使用此规范：
 
 ```yaml
 components:
@@ -2262,7 +2256,7 @@ components:
                     - green
 ```
 
-Type `serialize` setting results in the following generated code:
+类型 `serialize` 设置会生成以下代码：
 
 ```ts
 const formData = new FormData();
@@ -2279,7 +2273,7 @@ if (pet.relatives !== undefined) {
 }
 ```
 
-Type `serialize-with-brackets` setting results in the following generated code:
+类型 `serialize-with-brackets` 设置会生成以下代码：
 
 ```ts
 const formData = new FormData();
@@ -2296,7 +2290,7 @@ if (pet.relatives !== undefined) {
 }
 ```
 
-Type `explode` setting results in the following generated code:
+类型 `explode` 设置会生成以下代码：
 
 ```ts
 const formData = new FormData();
@@ -2322,15 +2316,15 @@ if (pet.relatives !== undefined) {
 
 #### formUrlEncoded
 
-Type: `Boolean` or `String` or `Object`.
+类型：`Boolean` 或 `String` 或 `Object`。
 
-Valid values: path of the formUrlEncoded function or object with a path and name.
+有效值：formUrlEncoded 函数的路径或包含路径和名称的对象。
 
-Use this property to disable the auto generation of form url encoded
+使用此属性禁用表单 URL 编码的自动生成
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2349,9 +2343,9 @@ module.exports = {
 ```
 
 ```ts
-// type signature
+// 类型签名
 export const customFormUrlEncodedFn = <Body>(body: Body): URLSearchParams => {
-  // do your implementation to transform it to FormData
+  // 执行您的实现以将其转换为 FormData
 
   return URLSearchParams;
 };
@@ -2359,19 +2353,19 @@ export const customFormUrlEncodedFn = <Body>(body: Body): URLSearchParams => {
 
 #### paramsSerializer
 
-Type: `String` or `Object`.
+类型：`String` 或 `Object`。
 
-IMPORTANT: This is only valid when using `axios` or `angular`.
+重要：这仅在使用 `axios` 或 `angular` 时有效。
 
-Valid values: path of the paramsSerializer function or object with a path and name.
+有效值：paramsSerializer 函数的路径或包含路径和名称的对象。
 
-Use this property to add a custom params serializer to all requests that use query params.
+使用此属性为所有使用查询参数的请求添加自定义参数序列化器。
 
-If you provide an object you can also add a default property to use an export default function.
+如果您提供对象，还可以添加 default 属性来使用导出默认函数。
 
-If this is not specified, params are serialized as per `axios` default.
+如果未指定，参数将按照 `axios` 默认方式序列化。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2390,11 +2384,11 @@ module.exports = {
 ```
 
 ```ts
-// type signature
+// 类型签名
 export const customParamsSerializerFn = (
   params: Record<string, any>,
 ): string => {
-  // do your implementation to transform the params
+  // 执行您的实现以转换参数
 
   return params;
 };
@@ -2402,16 +2396,16 @@ export const customParamsSerializerFn = (
 
 #### paramsSerializerOptions
 
-Type: `Object`
+类型：`Object`
 
-IMPORTANT: This is only valid when using `axios`.
+重要：这仅在使用 `axios` 时有效。
 
-Use this property to decide how params are serialized. This is only taken into account when `paramsSerializer` is not defined.
-Currently, only `qs` is the available option. Read more about `qs` and it's settings [here](https://www.npmjs.com/package/qs).
+使用此属性决定参数如何序列化。这仅在未定义 `paramsSerializer` 时考虑。
+目前，只有 `qs` 是可用选项。在[这里](https://www.npmjs.com/package/qs)了解更多关于 `qs` 及其设置的信息。
 
-If this is not specified, params are serialized as per `axios` default.
+如果未指定，参数将按照 `axios` 默认方式序列化。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2431,13 +2425,13 @@ module.exports = {
 
 #### useDates
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to false.
+有效值：true 或 false。默认为 false。
 
-Use this property to convert OpenAPI `date` or `datetime` to JavaScript `Date` objects instead of `string`.
+使用此属性将 OpenAPI `date` 或 `datetime` 转换为 JavaScript `Date` 对象而不是 `string`。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2451,11 +2445,11 @@ module.exports = {
 };
 ```
 
-**Note:** You must provide and Axios converter to convert these to dates as this just makes the TypeScript definition a Date.
-You can choose to use any Date library you want like Moment, Luxon, or native JS Dates.
+**注意：** 您必须提供 Axios 转换器来将这些转换为日期，因为这只是使 TypeScript 定义为 Date。
+您可以选择使用任何您想要的日期库，如 Moment、Luxon 或原生 JS 日期。
 
 ```ts
-// type signature
+// 类型签名
 const client = axios.create({
   baseURL: '',
 });
@@ -2481,10 +2475,10 @@ export function handleDates(body: any) {
   for (const key of Object.keys(body)) {
     const value = body[key];
     if (isIsoDateString(value)) {
-      body[key] = new Date(value); // default JS conversion
-      // body[key] = parseISO(value); // date-fns conversion
-      // body[key] = luxon.DateTime.fromISO(value); // Luxon conversion
-      // body[key] = moment(value).toDate(); // Moment.js conversion
+      body[key] = new Date(value); // 默认 JS 转换
+      // body[key] = parseISO(value); // date-fns 转换
+      // body[key] = luxon.DateTime.fromISO(value); // Luxon 转换
+      // body[key] = moment(value).toDate(); // Moment.js 转换
     } else if (typeof value === 'object') {
       handleDates(value);
     }
@@ -2492,17 +2486,17 @@ export function handleDates(body: any) {
 }
 ```
 
-**Note:** If you are using the fetch client and useDates is set to true, query parameters of type Date will be stringified using toISOString()
+**注意：** 如果您使用 fetch 客户端并且 useDates 设置为 true，Date 类型的查询参数将使用 toISOString() 进行字符串化
 
 #### useBigInt
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to false.
+有效值：true 或 false。默认为 false。
 
-Use this property to convert OpenAPI `int64` and `uint64` format to JavaScript `BigInt` objects instead of `number`.
+使用此属性将 OpenAPI `int64` 和 `uint64` 格式转换为 JavaScript `BigInt` 对象而不是 `number`。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2518,17 +2512,17 @@ module.exports = {
 
 #### coerceTypes
 
-Type: `Boolean`
+类型：`Boolean`
 
-Deprecated: Use `zod.coerce` instead.
+已弃用：请使用 `zod.coerce` 代替。
 
-Valid values: true or false. Defaults to false.
+有效值：true 或 false。默认为 false。
 
-Use this property to enable [type coercion](https://zod.dev/?id=coercion-for-primitives) for [Zod](https://zod.dev/) schemas (only applies to query parameters schemas).
+使用此属性为 [Zod](https://zod.dev/) 模式启用[类型强制转换](https://zod.dev/?id=coercion-for-primitives)（仅适用于查询参数模式）。
 
-This is helpful if you want to use the zod schema to coerce (likely string-serialized) query parameters into the correct type before validation.
+如果您想使用 zod 模式在验证之前将（可能是字符串序列化的）查询参数强制转换为正确的类型，这很有用。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2544,13 +2538,13 @@ module.exports = {
 
 #### useNamedParameters
 
-Type: `Boolean`.
+类型：`Boolean`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Generates the operation interfaces with named path parameters instead of individual arguments for each path parameter.
+生成带有命名路径参数的操作接口，而不是为每个路径参数使用单独的参数。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2566,13 +2560,13 @@ module.exports = {
 
 #### useTypeOverInterfaces
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to false.
+有效值：true 或 false。默认为 false。
 
-Use this property to use TypeScript `type` instead of `interface`.
+使用此属性使用 TypeScript `type` 而不是 `interface`。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2588,13 +2582,13 @@ module.exports = {
 
 #### useDeprecatedOperations
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to true.
+有效值：true 或 false。默认为 true。
 
-Use this property to include/exclude generating any operation marked `"deprecated": true` in OpenAPI.
+使用此属性包含/排除生成在 OpenAPI 中标记为 `"deprecated": true` 的任何操作。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2610,11 +2604,11 @@ module.exports = {
 
 #### contentType
 
-Type: `Object`
+类型：`Object`
 
-Use this property to include or exclude some content types
+使用此属性包含或排除某些内容类型
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2631,15 +2625,15 @@ module.exports = {
 };
 ```
 
-#### useNativeEnums (deprecated, use 'enumGenerationType="enum"' instead)
+#### useNativeEnums（已弃用，请使用 'enumGenerationType="enum"' 代替）
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to false.
+有效值：true 或 false。默认为 false。
 
-Use this property to generate native Typescript `enum` instead of `type` and `const` combo.
+使用此属性生成原生 TypeScript `enum` 而不是 `type` 和 `const` 组合。
 
-Example:
+示例：
 
 ```js
 module.exports = {
@@ -2655,12 +2649,12 @@ module.exports = {
 
 #### enumGenerationType
 
-Type: `const` | `enum` | `union`
+类型：`const` | `enum` | `union`
 
-Default Value: `const`.
+默认值：`const`。
 
-This is used to specify how enums are generated. `const` generates a const object, `enum` generates a native enum and `union` generates a simple union type.
-To change the name of the generated enum keys, you can extend your OpenAPI schema with x-enumNames. Read more [here](../../guides/enums).
+这用于指定如何生成枚举。`const` 生成常量对象，`enum` 生成原生枚举，`union` 生成简单的联合类型。
+要更改生成的枚举键的名称，您可以使用 x-enumNames 扩展您的 OpenAPI 模式。在[这里](../../guides/enums)了解更多。
 
 ```js
 module.exports = {
@@ -2674,7 +2668,7 @@ module.exports = {
 };
 ```
 
-Result when `enumGenerationType` is `const`:
+当 `enumGenerationType` 为 `const` 时的结果：
 
 ```ts
 export type Example = (typeof Example)[keyof typeof Example];
@@ -2687,7 +2681,7 @@ export const Example = {
 } as const;
 ```
 
-Result when `enumGenerationType` is `enum`:
+当 `enumGenerationType` 为 `enum` 时的结果：
 
 ```ts
 export enum Example {
@@ -2697,7 +2691,7 @@ export enum Example {
 }
 ```
 
-Result when `enumGenerationType` is `union`:
+当 `enumGenerationType` 为 `union` 时的结果：
 
 ```ts
 export const Example = 'foo' | 'bar' | 'baz';
@@ -2705,13 +2699,13 @@ export const Example = 'foo' | 'bar' | 'baz';
 
 #### suppressReadonlyModifier
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid Values: `true` or `false`.
+有效值：`true` 或 `false`。
 
-Default Value: `false`.
+默认值：`false`。
 
-When the `readonly` field is specified in `OpenAPI`, specify `readonly` in the `type` and `interface` fields output from the schema.
+当在 `OpenAPI` 中指定 `readonly` 字段时，在从模式输出的 `type` 和 `interface` 字段中指定 `readonly`。
 
 ```js
 module.exports = {
@@ -2729,11 +2723,11 @@ module.exports = {
 
 ##### filter
 
-Type: `Object`.
+类型：`Object`。
 
-A configuration object that allows you to customize `JSDoc` generation by optionally providing a filter function that transforms schema entries into key-value pairs.
+一个配置对象，允许您通过可选地提供一个将模式条目转换为键值对的过滤器函数来自定义 `JSDoc` 生成。
 
-Example:
+示例：
 
 ```ts
 module.exports = {
@@ -2775,7 +2769,7 @@ module.exports = {
 };
 ```
 
-Input:
+输入：
 
 ```yaml
 components:
@@ -2804,13 +2798,13 @@ components:
           format: email
         callingCode:
           type: string
-          enum: ['+33', '+420', '+33'] # intentional duplicated value
+          enum: ['+33', '+420', '+33'] # 故意重复的值
         country:
           type: string
           enum: ["People's Republic of China", 'Uruguay']
 ```
 
-Result:
+结果：
 
 ```ts
 export interface Pet {
@@ -2861,14 +2855,14 @@ export interface Pet {
 
 ## allParamsOptional
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid Values: `true` or `false`.
+有效值：`true` 或 `false`。
 
-Default Value: `false`.
+默认值：`false`。
 
-Applies to all clients, but probably only makes sense for `Tanstack Query`.
-Use this property to make all parameters optional except the path parameter. This is useful to take advantage of the `Orval`'s auto-enable feature for `Tanstack Query`, see https://github.com/orval-labs/orval/pull/894
+适用于所有客户端，但可能只对 `Tanstack Query` 有意义。
+使用此属性使除路径参数外的所有参数都可选。这对于利用 `Orval` 的 `Tanstack Query` 自动启用功能很有用，请参见 https://github.com/orval-labs/orval/pull/894
 
 ```js
 module.exports = {
@@ -2882,11 +2876,11 @@ module.exports = {
 
 ## urlEncodeParameters
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid values: true or false. Defaults to false. **Note:** this only works for Tanstack Query clients for now.
+有效值：true 或 false。默认为 false。**注意：** 目前仅适用于 Tanstack Query 客户端。
 
-Use this property to enable URL encoding of path/query parameters. This is highly recommended, and will probably become a default in the future, see https://github.com/orval-labs/orval/pull/895
+使用此属性启用路径/查询参数的 URL 编码。强烈推荐使用，将来可能会成为默认设置，请参见 https://github.com/orval-labs/orval/pull/895
 
 ```js
 module.exports = {
@@ -2900,12 +2894,12 @@ module.exports = {
 
 ## optionsParamRequired
 
-Type: `Boolean`
+类型：`Boolean`
 
-Valid Values: `true` or `false`.
+有效值：`true` 或 `false`。
 
-Default Value: `false`.
-Use this property to make the second `options` parameter required (such as when using a custom axios instance)
+默认值：`false`。
+使用此属性使第二个 `options` 参数成为必需的（例如使用自定义 axios 实例时）
 
 ```js
 module.exports = {
@@ -2919,10 +2913,10 @@ module.exports = {
 
 ## propertySortOrder
 
-Type: `Alphabetical` | `Specification`
+类型：`Alphabetical` | `Specification`
 
-Default Value: `Specification`
-This enables you to specify how properties in the models are sorted, either alphabetically or in the order they appear in the specification.
+默认值：`Specification`
+这使您能够指定模型中属性的排序方式，可以按字母顺序排序或按它们在规范中出现的顺序排序。
 
 ```js
 module.exports = {
